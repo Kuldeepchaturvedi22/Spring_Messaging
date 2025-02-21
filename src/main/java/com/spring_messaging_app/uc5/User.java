@@ -1,4 +1,4 @@
-package com.spring_messaging_app.uc4;
+package com.spring_messaging_app.uc5;
 
 public class User {
     private String firstName;

@@ -1,4 +1,4 @@
-package com.spring_messaging_app.uc4;
+package com.spring_messaging_app.uc5;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -32,5 +32,13 @@ public class HelloController {
     public String hello(@RequestBody User user) {
         // Returns a greeting message with the provided user's first and last name
         return "Hello " + user.getFirstName() + " " + user.getLastName() + " !";
+    }
+
+    // Maps HTTP PUT requests to /put/{firstName} to this method
+    @PutMapping("/put/{firstName}")
+    public String sayHello(@PathVariable String firstName,
+                           @RequestParam(value = "lastName") String lastName) {
+        // Returns a greeting message with the provided first and last name
+        return "Hello " + firstName + " " + lastName + "!";
     }
 }
