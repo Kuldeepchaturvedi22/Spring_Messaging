@@ -1,10 +1,6 @@
-package com.spring_messaging_app.uc2;
+package com.spring_messaging_app.uc3;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 // Indicates that this class is a Spring MVC controller
 @RestController
@@ -20,6 +16,14 @@ public class HelloController {
     // Maps HTTP GET requests to /query to this method
     @RequestMapping(value = "/query", method = RequestMethod.GET)
     public String hello(@RequestParam(value = "name") String name) {
+        // Returns a greeting message with the provided name
+        return "Hello " + name + " !";
+    }
+
+    // Maps HTTP requests to /param/{name} to this method
+    @RequestMapping("/param/{name}")
+    public String helloParam(@PathVariable String name) {
+        // Returns a greeting message with the provided name from the path variable
         return "Hello " + name + " !";
     }
 }
