@@ -1,4 +1,4 @@
-package com.spring_messaging_app.uc3;
+package com.spring_messaging_app.uc4;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -25,5 +25,12 @@ public class HelloController {
     public String helloParam(@PathVariable String name) {
         // Returns a greeting message with the provided name from the path variable
         return "Hello " + name + " !";
+    }
+
+    // Maps HTTP POST requests to /post to this method
+    @PostMapping("/post")
+    public String hello(@RequestBody User user) {
+        // Returns a greeting message with the provided user's first and last name
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " !";
     }
 }
